@@ -1,0 +1,55 @@
+[00:00:22] [pool-13-thread-10/INFO]: Searching for closest structure among [ResourceKey[minecraft:worldgen/structure / ctov:small/village_mesa_fortified], ResourceKey[minecraft:worldgen/structure / ctov:large/village_mesa], ResourceKey[minecraft:worldgen/structure / towns_and_towers:village_forest], ResourceKey[minecraft:worldgen/structure / ctov:small/village_jungle_tree], ResourceKey[minecraft:worldgen/structure / ctov:medium/village_dark_forest], ResourceKey[minecraft:worldgen/structure / towns_and_towers:village_birch_forest], ResourceKey[minecraft:worldgen/structure / ctov:large/village_taiga_fortified], ResourceKey[minecraft:worldgen/structure / ctov:small/village_plains]] from pos class_2338{x=2155, y=74, z=-9627}
+[00:00:36] [Worker-Main-3/ERROR]: ThreadLocalRandom accessed from a different thread (owner: Server thread, current: Worker-Main-3)
+Possible solutions: Find possible causes in the stack trace below and report to the corresponding mod authors 
+
+java.util.ConcurrentModificationException: ThreadLocalRandom accessed from a different thread (owner: Server thread, current: Worker-Main-3)
+	at com.ishland.uwrad.common.CheckedThreadLocalRandom.handleNotOwner(CheckedThreadLocalRandom.java:51) ~[unsafe-world-random-access-detector-1.1.0.jar:?]
+	at com.ishland.uwrad.common.CheckedThreadLocalRandom.isSafe(CheckedThreadLocalRandom.java:38) ~[unsafe-world-random-access-detector-1.1.0.jar:?]
+	at com.ishland.uwrad.common.CheckedThreadLocalRandom.next(CheckedThreadLocalRandom.java:82) ~[unsafe-world-random-access-detector-1.1.0.jar:?]
+	at net.minecraft.util.math.random.BaseRandom.nextInt(BaseRandom.java:33) ~[server-intermediary.jar:?]
+	at net.minecraft.util.math.random.Random.nextBetween(net/minecraft/class_5819.java:52) ~[server-intermediary.jar:?]
+	at com.github.thedeathlycow.frostiful.entity.WindEntity.<init>(WindEntity.java:50) ~[frostiful-1.0.11.jar:?]
+	at com.github.thedeathlycow.frostiful.entity.FreezingWindEntity.<init>(FreezingWindEntity.java:18) ~[frostiful-1.0.11.jar:?]
+	at net.minecraft.entity.EntityType.create(net/minecraft/class_1299.java:544) ~[server-intermediary.jar:?]
+	at net.minecraft.entity.EntityType.method_17846(net/minecraft/class_1299.java:548) ~[server-intermediary.jar:?]
+	at java.util.Optional.map(Optional.java:260) ~[?:?]
+	at net.minecraft.entity.EntityType.getEntityFromNbt(net/minecraft/class_1299.java:548) ~[server-intermediary.jar:?]
+	at net.minecraft.structure.StructureTemplate.getEntity(net/minecraft/class_3499.java:430) ~[server-intermediary.jar:?]
+	at net.minecraft.structure.StructureTemplate.spawnEntities(net/minecraft/class_3499.java:415) ~[server-intermediary.jar:?]
+	at net.minecraft.structure.StructureTemplate.mixinextras$bridge$method_15179$83(StructureTemplate.java) ~[server-intermediary.jar:?]
+	at net.minecraft.structure.StructureTemplate.wrapOperation$zeb000$porting_lib_base$grabSettings(io/github/fabricators_of_create/porting_lib/mixin/common/StructureTemplateMixin.java [porting_lib_base.mixins.json]:55) ~[server-intermediary.jar:?]
+	at net.minecraft.structure.StructureTemplate.wrapOperation$zeb000$porting_lib_base$grabSettings$mixinextras$bridge$79(StructureTemplate.java) ~[server-intermediary.jar:?]
+	at net.minecraft.structure.StructureTemplate.place(net/minecraft/class_3499.java:347) ~[server-intermediary.jar:?]
+	at net.minecraft.structure.pool.SinglePoolElement.generate(net/minecraft/class_3781.java:124) ~[server-intermediary.jar:?]
+	at net.minecraft.structure.PoolStructurePiece.generate(PoolStructurePiece.java:89) ~[server-intermediary.jar:?]
+	at net.minecraft.structure.PoolStructurePiece.generate(PoolStructurePiece.java:85) ~[server-intermediary.jar:?]
+	at net.minecraft.structure.StructureStart.place(net/minecraft/class_3449.java:100) ~[server-intermediary.jar:?]
+	at net.minecraft.world.gen.chunk.ChunkGenerator.method_38265(net/minecraft/class_2794.java:320) ~[server-intermediary.jar:?]
+	at com.google.common.collect.ImmutableList.forEach(ImmutableList.java:422) ~[guava-31.1-jre.jar:?]
+	at net.minecraft.world.gen.chunk.ChunkGenerator.generateFeatures(net/minecraft/class_2794.java:319) ~[server-intermediary.jar:?]
+	at net.minecraft.world.chunk.ChunkStatus.method_51375(net/minecraft/class_2806.java:108) ~[server-intermediary.jar:?]
+	at net.minecraft.world.chunk.ChunkStatus$SimpleGenerationTask.doWork(ChunkStatus.java:309) ~[server-intermediary.jar:?]
+	at net.minecraft.world.chunk.ChunkStatus.runGenerationTask(net/minecraft/class_2806.java:252) ~[server-intermediary.jar:?]
+	at net.minecraft.server.world.ThreadedAnvilChunkStorage.method_17225(net/minecraft/class_3898.java:684) ~[server-intermediary.jar:?]
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38) ~[datafixerupper-6.0.8.jar:?]
+	at net.minecraft.server.world.ThreadedAnvilChunkStorage.method_17224(net/minecraft/class_3898.java:673) ~[server-intermediary.jar:?]
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150) ~[?:?]
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482) ~[?:?]
+	at net.minecraft.server.world.ChunkTaskPrioritySystem.method_17634(ChunkTaskPrioritySystem.java:62) ~[server-intermediary.jar:?]
+	at net.minecraft.util.thread.TaskExecutor.runNext(TaskExecutor.java:91) ~[server-intermediary.jar:?]
+	at net.minecraft.util.thread.TaskExecutor.runWhile(TaskExecutor.java:146) ~[server-intermediary.jar:?]
+	at net.minecraft.util.thread.TaskExecutor.run(TaskExecutor.java:102) ~[server-intermediary.jar:?]
+	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1395) ~[?:?]
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) ~[?:?]
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?]
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?]
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?]
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?]
+[00:01:02] [Server thread/INFO]: Kaiuramenuu lost connection: Disconnected
+[00:01:02] [Server thread/INFO]: Kaiuramenuu left the game
+[00:01:02] [Server thread/INFO]: remove player wand
+[00:01:02] [Server thread/INFO]: Updating all forceload tickets for 1a249b3a-134e-3c33-bea1-d2d9142b4a82
+[00:01:25] [Server thread/INFO]: FanGhost7 lost connection: Disconnected
+[00:01:25] [Server thread/INFO]: FanGhost7 left the game
+[00:01:25] [Server thread/INFO]: remove player wand
+[00:01:25] [Server thread/INFO]: Updating all forceload tickets for c2dd2229-5b2f-3f02-ac74-249f89b6886c

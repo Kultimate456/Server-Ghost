@@ -1,0 +1,17 @@
+{
+	id: "1a249b3a-134e-3c33-bea1-d2d9142b4a82"
+	type: "player"
+	player_name: "Kaiuramenuu"
+	ranks: {
+		1a249b3a-134e-3c33-bea1-d2d9142b4a82: "owner"
+	}
+	properties: {
+		"ftbteams:display_name": "Kaiuramenuu"
+		"ftbteams:description": ""
+		"ftbteams:color": "#FFE359"
+		"ftbteams:free_to_join": 0b
+		"ftbteams:max_msg_history_size": 1000
+	}
+	message_history: [ ]
+	extra: { }
+}
